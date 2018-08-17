@@ -1,15 +1,18 @@
 const http = require('http');
 const service = require('../server/service');
+const {WitCleint} = require('../server/witClient');
 const slackClient = require('../server/slackClient');
 
-const token = "YOUR-BOT-OAuth-Token";
+const witToken = "ZXLKRJXJCPDC466FABJJZ4STFRDHJGVA";
+const wit = new WitCleint(witToken);
 
-const rtm = slackClient.rtmFatory(token, 'debug');
+const slackToken = "xoxb-417553210130-417117321872-npTQtPxaVFZswbsLUN0iDAsj";
+const rtm = slackClient.rtmFatory(slackToken, 'debug', wit);
 rtm.start();
 
-const server = http.createServer(service);
 
-// start slack only if authenticated
+const server = http.createServer(service);
+// start express server only if authenticated
 slackClient.addAuthenticatedHandler(rtm, () => server.listen(3000) );
 
 server.on('listening', () => {
