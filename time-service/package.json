@@ -1,0 +1,16 @@
+{
+  "name": "slack-bot-time",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon bin/run.js"
+  },
+  "author": "Ahmed Salah",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3"
+  }
+}
