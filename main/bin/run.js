@@ -6,8 +6,10 @@ const slackClient = require('../server/slackClient');
 const witToken = "ZXLKRJXJCPDC466FABJJZ4STFRDHJGVA";
 const wit = new WitCleint(witToken);
 
+const registry = service.get('registry');
+
 const slackToken = "xoxb-417553210130-417117321872-npTQtPxaVFZswbsLUN0iDAsj";
-const rtm = slackClient.rtmFatory(slackToken, 'debug', wit);
+const rtm = slackClient.rtmFatory(slackToken, 'debug', wit, registry);
 rtm.start();
 
 
